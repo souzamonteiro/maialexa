@@ -1,0 +1,32 @@
+{
+    "name": "maialang",
+    "version": "1.0.0",
+    "description": "MaiaScript multilingual Parser.",
+    "keywords": [
+      "maia",
+      "maiascript",
+      "javascript",
+      "Natural language parser"
+    ],
+    "author": "The MaiaScript Team (https://www.maiascript.com)",
+    "license": "Apache-2.0",
+    "homepage": "https://www.maiascript.com",
+    "bugs": {
+      "url": "https://github.com/souzamonteiro/maialang/issues"
+    },
+    "main": "",
+    "bin": {
+      "maiascript": ""
+    },
+    "scripts": {
+      "build": "./build.sh"
+    },
+    "directories": {
+      "example": "examples"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/souzamonteiro/maialang.git"
+    }
+  }
+  

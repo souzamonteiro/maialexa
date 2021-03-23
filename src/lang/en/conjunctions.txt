@@ -1,0 +1,39 @@
+[coordinating conjunctions]
+but
+so
+or
+and
+[subordinating conjunctions]
+after
+before
+although
+even though
+because
+as
+if
+as long as
+provided that
+till
+until
+unless
+when
+once
+as soon as
+while
+whereas
+in spite of
+despite
+[linking words]
+in addition
+furthermore
+however
+on the other hand
+therefore
+consequently
+first
+firstly
+second
+secondly
+third
+thirdly
+finally

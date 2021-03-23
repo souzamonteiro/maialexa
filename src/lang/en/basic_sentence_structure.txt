@@ -1,0 +1,6 @@
+[basic sentence structure]
+subject
+predicate
+direct object
+indirect object
+subject complement
