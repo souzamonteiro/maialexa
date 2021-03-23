@@ -1,0 +1,38 @@
+[noun suffixe]
+acy
+al
+ance
+dom
+ence
+er
+ism
+ist
+ity
+ment
+ness
+or
+ship
+sion
+tion
+ty
+[verb suffixe]
+ate
+en
+fy
+ify
+ise
+ize
+[adjective suffixe]
+able
+al
+esque
+ful
+ible
+ic
+ical
+ious
+ish
+ive
+less
+ous
+y

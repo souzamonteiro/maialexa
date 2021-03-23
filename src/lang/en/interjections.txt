@@ -1,4 +1,4 @@
-[interjections]
+[interjection]
 ah
 aha
 ahem
@@ -15,8 +15,8 @@ big deal
 bingo
 boo
 boo-hoo
-booyah
 boo-yah
+booyah
 boy boy
 bravo
 brilliant
@@ -38,8 +38,8 @@ enjoy
 excellent
 fabulous
 fantastic
-fiddledeedee
 fiddle-dee-dee
+fiddledeedee
 finally
 for heaven's
 fore
@@ -49,10 +49,10 @@ gee gee
 giddyap
 giddyup
 golly good
-goodbye
-good-bye
 good grief
 good heavens
+good-bye
+goodbye
 gosh
 great
 great balls
@@ -64,17 +64,17 @@ hello
 help
 hey hey
 hi
-hiya
 hip hip
+hiya
 hmm
-hrm
 ho-ho-ho
-holy mackerel
 ho-hum
+holy mackerel
 hooray
-hurrah
 howdy howdy
+hrm
 huh
+hurrah
 ick
 indeed
 jeez

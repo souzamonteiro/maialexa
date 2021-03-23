@@ -1,4 +1,4 @@
-[irregular verbs]
+[irregular verb]
 #base form,past simple,past participle
 arise,arose,arisen
 awake,awoke,awoken
@@ -20,8 +20,8 @@ breed,bred,bred
 bring,brought,brought
 broadcast,broadcast,broadcast
 build,built,built
-burn,burnt,burnt
 burn,burned,burned
+burn,burnt,burnt
 burst,burst,burst
 buy,bought,bought
 can,could,could
@@ -36,8 +36,8 @@ deal,dealt,dealt
 dig,dug,dug
 do,did,done
 draw,drew,drawn
-dream,dreamt,dreamt
 dream,dreamed,dreamed
+dream,dreamt,dreamt
 drink,drank,drunk
 drive,drove,driven
 eat,ate,eaten
@@ -68,23 +68,23 @@ kneel,knelt,knelt
 know,knew,known
 lay,laid,laid
 lead,led,led
-lean,leant,leant
 lean,leaned,leaned
-learn,learnt,learnt
+lean,leant,leant
 learn,learned,learned
+learn,learnt,learnt
 leave,left,left
 lend,lent,lent
 lie,lay,lain
 lie,lied,lied
-light,lit,lit
 light,lighted,lighted
+light,lit,lit
 lose,lost,lost
 make,made,made
 may,might,might
 mean,meant,meant
 meet,met,met
-mow,mown;mown
 mow,mowed,mowed
+mow,mown;mown
 overtake,overtook,overtaken
 pay,paid,paid
 put,put,put
@@ -93,15 +93,15 @@ ride,rode,ridden
 ring,rang,rung
 rise,rose,risen
 run,ran,run
-saw,sawn,sawn
 saw,sawed,sawed
+saw,sawn,sawn
 say,said,said
 see,saw,seen
 sell,sold,sold
 send,sent,sent
 set,set,set
-sew,sewn,sewn
 sew,sewed,sewed
+sew,sewn,sewn
 shake,shook,shaken
 shall,should,should
 shed,shed,shed
@@ -116,14 +116,14 @@ sit,sat,sat
 sleep,slept,slept
 slide,slid,slid
 smell,smelt,smelt
-sow,sown,sown
 sow,sowed,sowed
+sow,sown,sown
 speak,spoke,spoken
-spell,spelt,spelt
 spell,spelled,spelled
+spell,spelt,spelt
 spend,spent,spent
-spill,spilt,spilt
 spill,spilled,spilled
+spill,spilt,spilt
 spit,spat,spat
 spread,spread,spread
 stand,stood,stood
@@ -134,8 +134,8 @@ stink,stank,stunk
 strike,struck,struck
 swear,swore,sworn
 sweep,swept,swept
-swell,swollen,swollen
 swell,swelled,swelled
+swell,swollen,swollen
 swim,swam,swum
 swing,swung,swung
 take,took,taken

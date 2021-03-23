@@ -1,4 +1,4 @@
-[personal pronouns]
+[personal pronoun]
 i
 we
 you
@@ -6,7 +6,7 @@ he
 she
 it
 they
-[object pronouns]
+[object pronoun]
 me
 us
 you
@@ -14,21 +14,21 @@ her
 him
 it
 them
-[possessive pronouns]
+[possessive pronoun]
 mine
 ours
 yours
 hers
 his
 theirs
-[possessive adjectives]
+[possessive adjective pronoun]
 my
 our
 your
 her
 his
 their
-[reflexive pronouns]
+[reflexive pronoun]
 myself
 yourself
 herself
@@ -37,7 +37,7 @@ itself
 ourselves
 yourselves
 themselves
-[intensive pronouns]
+[intensive pronoun]
 myself
 yourself
 herself
@@ -46,7 +46,7 @@ itself
 ourselves
 yourselves
 themselves
-[indefinite pronouns]
+[indefinite pronoun]
 all
 another
 any
@@ -63,9 +63,9 @@ few
 many
 most
 neither
+no one
 nobody
 none
-no one
 nothing
 one
 other
@@ -76,13 +76,13 @@ somebody
 someone
 something
 such
-[demonstrative pronouns]
+[demonstrative pronoun]
 such
 that
 these
 this
 those
-[interrogative pronouns]
+[interrogative pronoun]
 what
 whatever
 which
@@ -92,7 +92,7 @@ whoever
 whom
 whomever
 whose
-[relative pronouns]
+[relative pronoun]
 as
 that
 what
@@ -104,11 +104,11 @@ whoever
 whom
 whomever
 whose
-[archaic pronouns]
-thou
+[archaic pronoun]
 thee
-thy
 thine
+thou
+thy
 ye
 [pronominal adjective]
 all
@@ -203,10 +203,10 @@ wherein
 whereinto
 whereof
 whereon
-wherever
 wheresoever
 whereto
 whereunto
+wherever
 wherewith
 wherewithal
 whether
@@ -220,8 +220,8 @@ whomever
 whomso
 whomsoever
 whose
-whosever
 whosesoever
+whosever
 whoso
 whosoever
 ye

@@ -1,4 +1,4 @@
-[positive adverbs]
+[positive adverb]
 boldly
 bravely
 brightly
@@ -23,9 +23,9 @@ politely
 powerfully
 safely
 victoriously
-warmly
 vivaciously
-[negative adverbs]
+warmly
+[negative adverb]
 angrily
 anxiously
 badly
@@ -40,7 +40,8 @@ poorly
 rudely
 selfishly
 wearily
-[adverbs about time]
+[adverb about time]
+advertisement
 always
 eventually
 finally
@@ -56,15 +57,14 @@ sometimes
 usually
 weekly
 yearly
-advertisement
-[adverbs that describe speed]
+[adverb that describe speed]
 promptly
 quickly
 rapidly
 slowly
 speedily
 tediously
-[other adverbs]
+[adverb]
 accidentally
 awkwardly
 blindly
