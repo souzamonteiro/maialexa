@@ -1,2 +1,2 @@
-# maialang
-MaiaScript multilingual Parser
+# MaiaLang
+MaiaScript multilingual Parser.
