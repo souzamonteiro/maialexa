@@ -1,4 +1,4 @@
-[noun suffixe]
+[noun suffix]
 acy
 al
 ance
@@ -15,14 +15,14 @@ ship
 sion
 tion
 ty
-[verb suffixe]
+[verb suffix]
 ate
 en
 fy
 ify
 ise
 ize
-[adjective suffixe]
+[adjective suffix]
 able
 al
 esque
