@@ -102,7 +102,7 @@ function MkLexer() {
                                 console.log(fileName)
                                 console.log(fileExtension)
                                 var fileContents = read(String(file));
-                                property = fileName.replace('//_', ' ');
+                                property = fileName.split('/').pop().split('_').join(' ');
                                 lexemes[string.camelize(property)] = fileContents;
                             }
 

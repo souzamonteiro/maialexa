@@ -1,1 +1,0 @@
-{"":"[noun suffix]\r\nacy\r\nal\r\nance\r\ndom\r\nence\r\ner\r\nism\r\nist\r\nity\r\nment\r\nness\r\nor\r\nship\r\nsion\r\ntion\r\nty\r\n[verb suffix]\r\nate\r\nen\r\nfy\r\nify\r\nise\r\nize\r\n[adjective suffix]\r\nable\r\nal\r\nesque\r\nful\r\nible\r\nic\r\nical\r\nious\r\nish\r\nive\r\nless\r\nous\r\ny"}
