@@ -10172,14 +10172,34 @@ function MkLexer() {
 
                             for (var i = 0; i < files.length; i++) {
                                 file = files[i];
-                                
+
                                 var fileName = file.split('.').shift();
                                 var fileExtension = file.split('.').pop();
-                                console.log(fileName)
-                                console.log(fileExtension)
                                 var fileContents = read(String(file));
-                                property = fileName.split('/').pop().split('_').join(' ');
-                                lexemes[string.camelize(property)] = fileContents;
+                                var mainObjectName = string.camelize(fileName.split('/').pop().split('_').join(' '));
+                                var thisObjectName = mainObjectName;
+                                lexemes[mainObjectName] = {};
+                                var mainObject = lexemes[mainObjectName];
+                                mainObject[thisObjectName] = [];
+                                var thisObject = mainObject[thisObjectName];
+                                var fileLines = fileContents.split('\n');
+                                for (var j = 0; j < fileLines.length; j++) {
+                                    var line = core.trim(fileLines[j].trim(), '\r');
+                                    if (line[0] == '#') {
+                                        continue;
+                                    } else if ((line[0] == '[') && (line[line.length - 1] == ']')) {
+                                        thisObjectName = string.camelize(core.trimRight(core.trimLeft(line, '['), ']'));
+                                        mainObject[thisObjectName] = [];
+                                        thisObject = mainObject[thisObjectName];
+                                    } else {
+                                        var record = line.split(',');
+                                        if (record.length > 1) {
+                                            thisObject.push(record);
+                                        } else {
+                                            thisObject.push(line);
+                                        }
+                                    }
+                                }
                             }
 
                             if (outputFile == '') {
