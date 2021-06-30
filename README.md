@@ -1,2 +1,2 @@
 # MaiaLang
-MaiaScript multilingual Parser.
+Maia Natural Language Compiler.
