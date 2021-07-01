@@ -32,6 +32,25 @@ function Lexer() {
     }
 
     /**
+     * Convert a string to an array, using the characters indicated as a separators.
+     * @param {string}   str - The string to slit.
+     * @param {array}    chars - The separator characters.
+     * @return {array}   The array containing the parts of the string.
+     */
+    this.split = function(str, chars){
+        var tempChar = chars[0];
+
+        for(var i = 1; i < chars.length; i++){
+            str = str.split(chars[i]).join(tempChar);
+        }
+        str = str.split(tempChar);
+
+        return str;
+    }
+
+    thisLexer = this;
+
+    /**
      * Interpret the options passed on the command line,
      * process the files and generate the requested reports.
      */
@@ -60,6 +79,7 @@ function Lexer() {
             // Command line options.
             var inputFile = '';
             var outputFile = '';
+            var sentenceSeparator = [':', ';', '.', '?', '!'];
             
             // Get command line arguments.
             if (argv.length > 2) {
@@ -75,7 +95,7 @@ function Lexer() {
                     } else if (argv[i] == '-o') {
                         i++;
                         outputFile = argv[i];
-                   } else {
+                    } else {
                         inputFile = argv[i];
                         break;
                     }
@@ -99,10 +119,24 @@ function Lexer() {
                                 var fileExtension = file.split('.').pop();
 
                                 var fileContents = read(String(file));
+
+                                var fileSentences = thisLexer.split(fileContents, sentenceSeparator);
+
+                                var json = [];
+
+                                function isNotEmpty(element) {
+                                    return element != '';
+                                }
+                                
+                                for (var j = 0; j < fileSentences.length; j++) {
+                                    var words = thisLexer.split(fileSentences[j], [' ', ',']).filter(isNotEmpty);
+                                    json.push(words);
+                                }
+
                                 if (outputFile == '') {
                                     outputFile = fileName + '.json';
                                 }
-                                var json = {}
+
                                 fs.writeFile(outputFile, JSON.stringify(json), function(err) {
                                     if (err) {
                                         throw err;

@@ -10206,7 +10206,7 @@ function MkLexer() {
                                 outputFile = 'lexemes.json';
                             }
 
-                            fs.writeFile(outputFile, JSON.stringify(lexemes), function(err) {
+                            fs.writeFile(outputFile, "var lexemes = " + JSON.stringify(lexemes), function(err) {
                                 if (err) {
                                     throw err;
                                 }

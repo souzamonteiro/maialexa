@@ -7,14 +7,14 @@ cat src/Shebang.js js/libmaia.js src/MkLexer.js > build/mklexer.js
 cp build/mklexer.js bin/
 chmod 755 bin/mklexer.js
 
-./bin/mklexer.js -o build/Lexemes.json "src/lang/en/*"
-cp build/Lexemes.json src/
+./bin/mklexer.js -o build/Lexemes-en.json "src/lang/en/*"
+cp build/Lexemes-en.json src/
 
-#cat src/Shebang.js js/libmaia.js src/Lexemes.json src/Lexer.js > build/lexer.js
+cat src/Shebang.js js/libmaia.js src/Lexemes-en.json src/Lexer.js > build/lexer-en.js
 
-#cp build/lexer.js js/
-#cp build/lexer.js bin/
+cp build/lexer-en.js js/
+cp build/lexer-en.js bin/
 
-#chmod 755 bin/*
+chmod 755 bin/*
 
 #jsdoc -d ./docs ./package.json ./src

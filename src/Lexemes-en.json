@@ -1,4 +1,4 @@
-{
+var lexemes = {
     "adverb": {
         "adverb": ["accidentally", "awkwardly", "blindly", "coyly", "crazily", "defiantly", "deliberately", "doubtfully", "dramatically", "dutifully", "enormously", "evenly", "exactly", "hastily", "hungrily", "inquisitively", "loosely", "madly", "mortally", "mysteriously", "nervously", "only", "seriously", "shakily", "sharply", "silently", "solemnly", "sternly", "technically", "unexpectedly", "wildly"],
         "positiveAdverb": ["boldly", "bravely", "brightly", "cheerfully", "deftly", "devotedly", "eagerly", "elegantly", "faithfully", "fortunately", "gleefully", "gracefully", "happily", "honestly", "innocently", "justly", "kindly", "merrily", "obediently", "perfectly", "politely", "powerfully", "safely", "victoriously", "vivaciously", "warmly"],
