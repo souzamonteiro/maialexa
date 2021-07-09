@@ -1,5 +1,9 @@
 [
     [{
+        "class": "Article",
+        "subClass": "IndefiniteArticle",
+        "object": "a"
+    }, {
         "class": "Unknown",
         "subClass": "Unknown",
         "object": "robot"
@@ -16,6 +20,10 @@
         "subClass": "Unknown",
         "object": "injure"
     }, {
+        "class": "Article",
+        "subClass": "IndefiniteArticle",
+        "object": "a"
+    }, {
         "class": "Noun",
         "subClass": "Noun",
         "object": "human"
@@ -23,6 +31,10 @@
         "class": "Noun",
         "subClass": "Noun",
         "object": "being"
+    }, {
+        "class": "Conjunction",
+        "subClass": "CoordinatingConjunction",
+        "object": "or"
     }, {
         "class": "Unknown",
         "subClass": "Unknown",
@@ -35,6 +47,10 @@
         "class": "Unknown",
         "subClass": "Unknown",
         "object": "allow"
+    }, {
+        "class": "Article",
+        "subClass": "IndefiniteArticle",
+        "object": "a"
     }, {
         "class": "Noun",
         "subClass": "Noun",
@@ -61,6 +77,10 @@
         "object": "harm"
     }],
     [{
+        "class": "Article",
+        "subClass": "IndefiniteArticle",
+        "object": "a"
+    }, {
         "class": "Unknown",
         "subClass": "Unknown",
         "object": "robot"
@@ -72,6 +92,10 @@
         "class": "Unknown",
         "subClass": "Unknown",
         "object": "obey"
+    }, {
+        "class": "Article",
+        "subClass": "DefiniteArticle",
+        "object": "the"
     }, {
         "class": "Unknown",
         "subClass": "Unknown",
@@ -101,6 +125,14 @@
         "subClass": "Unknown",
         "object": "except"
     }, {
+        "class": "Pronoun",
+        "subClass": "PronominalAdjective",
+        "object": "where"
+    }, {
+        "class": "Pronoun",
+        "subClass": "IndefinitePronoun",
+        "object": "such"
+    }, {
         "class": "Unknown",
         "subClass": "Unknown",
         "object": "orders"
@@ -117,6 +149,10 @@
         "subClass": "Unknown",
         "object": "with"
     }, {
+        "class": "Article",
+        "subClass": "DefiniteArticle",
+        "object": "the"
+    }, {
         "class": "Adverb",
         "subClass": "Adverb",
         "object": "first"
@@ -126,6 +162,10 @@
         "object": "law"
     }],
     [{
+        "class": "Article",
+        "subClass": "IndefiniteArticle",
+        "object": "a"
+    }, {
         "class": "Unknown",
         "subClass": "Unknown",
         "object": "robot"
@@ -138,6 +178,10 @@
         "subClass": "Unknown",
         "object": "protect"
     }, {
+        "class": "Pronoun",
+        "subClass": "PronominalAdjective",
+        "object": "its"
+    }, {
         "class": "Unknown",
         "subClass": "Unknown",
         "object": "own"
@@ -146,9 +190,21 @@
         "subClass": "Unknown",
         "object": "existence"
     }, {
+        "class": "Pronoun",
+        "subClass": "RelativePronoun",
+        "object": "as"
+    }, {
         "class": "Noun",
         "subClass": "Noun",
         "object": "long"
+    }, {
+        "class": "Pronoun",
+        "subClass": "RelativePronoun",
+        "object": "as"
+    }, {
+        "class": "Pronoun",
+        "subClass": "IndefinitePronoun",
+        "object": "such"
     }, {
         "class": "Noun",
         "subClass": "Noun",
@@ -170,9 +226,17 @@
         "subClass": "Unknown",
         "object": "with"
     }, {
+        "class": "Article",
+        "subClass": "DefiniteArticle",
+        "object": "the"
+    }, {
         "class": "Adverb",
         "subClass": "Adverb",
         "object": "first"
+    }, {
+        "class": "Conjunction",
+        "subClass": "CoordinatingConjunction",
+        "object": "or"
     }, {
         "class": "Noun",
         "subClass": "Noun",

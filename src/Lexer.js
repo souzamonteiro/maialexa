@@ -57,7 +57,6 @@ function Lexer() {
      */
     this.getTokens = function(text, sentencesSeparators, wordClassesToOmit) {
         var textSentences = thisLexer.split(text, sentencesSeparators);
-
         var classesToOmit = []
 
         if (core.type(wordClassesToOmit) != 'undefined') {
@@ -118,7 +117,7 @@ function Lexer() {
                 }
                 var omitWord = false;
                 for (var z = 0; z < classesToOmit.length; z++) {
-                    if ((core.toLowerCase(core.trim(classesToOmit[z])) == token.class) && (core.toLowerCase(core.trim(classesToOmit[z])) == token.subClass)) {
+                    if ((string.camelize(classesToOmit[z], true) == token.class) || (string.camelize(classesToOmit[z], true) == token.subClass)) {
                         omitWord = true;
                     }
                 }

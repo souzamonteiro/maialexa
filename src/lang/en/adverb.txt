@@ -79,6 +79,7 @@ dutifully
 enormously
 evenly
 exactly
+first
 hastily
 hungrily
 inquisitively

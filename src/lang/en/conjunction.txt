@@ -26,14 +26,11 @@ while
 [linking word]
 consequently
 finally
-first
 firstly
 furthermore
 however
 in addition
 on the other hand
-second
 secondly
 therefore
-third
 thirdly
