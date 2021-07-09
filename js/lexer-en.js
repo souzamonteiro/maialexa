@@ -5968,7 +5968,7 @@ function Core() {
      * This property needs to be updated
      * with each new version of MaiaStudio.
      */
-    this.version = "3.3.1";
+    this.version = "3.3.2";
 
     this.testResult = {
         "expected": {},
@@ -8773,14 +8773,15 @@ function MaiaString() {
     /**
      * Convert an string into camel case object name format.
      * @param {string}   str - String to convert.
+     * @param {string}   firstCharToUpperCase - Converts the first character to uppercase.
      * @return {string}  The string converted to camel case.
      */
-    this.camelize = function(str) {
+    this.camelize = function(str, firstCharToUpperCase) {
         function matchChars(match, index) {
             if (+match == 0) {
                 return "";
             } else {
-                return index == 0 ? match.toLowerCase() : match.toUpperCase();
+                return ((index == 0) && !firstCharToUpperCase) ? match.toLowerCase() : match.toUpperCase();
             }
         }
         return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, matchChars);
@@ -10113,7 +10114,7 @@ function Lexer() {
      * @param {array}    chars - The separator characters.
      * @return {array}   The array containing the parts of the string.
      */
-    this.split = function(str, chars){
+    this.split = function(str, chars) {
         var tempChar = chars[0];
 
         for(var i = 1; i < chars.length; i++){
@@ -10122,6 +10123,91 @@ function Lexer() {
         str = str.split(tempChar);
 
         return str;
+    }
+
+    /**
+     * Analyzes a text and identifies all tokens present in it.
+     * @param {string}   text - The text to scan for tokens.
+     * @param {array}    sentencesSeparators - The sentences separators list.
+     * @param {string}   wordClassesToOmit - Word classes to omit.
+     * @return {array}   The array containing all tokens found.
+     */
+    this.getTokens = function(text, sentencesSeparators, wordClassesToOmit) {
+        var textSentences = thisLexer.split(text, sentencesSeparators);
+
+        var classesToOmit = []
+
+        if (core.type(wordClassesToOmit) != 'undefined') {
+            var classesToOmit = core.split(wordClassesToOmit, ',');
+        }
+
+        var json = [];
+
+        function isNotEmpty(element) {
+            return element != '';
+        }
+        
+        for (var j = 0; j < textSentences.length; j++) {
+            var words = thisLexer.split(core.trim(textSentences[j], "\r\n"), [' ', ',']).filter(isNotEmpty);
+            var tokens = [];
+            for (var k = 0; k < words.length; k++) {
+                var token = {
+                    "class": "Unknown",
+                    "subClass": "Unknown",
+                    "object": words[k]
+                }
+                for (const wordClass in lexemes) {
+                    for (const wordSubClass in lexemes[wordClass]) {
+                        if (Array.isArray(lexemes[wordClass][wordSubClass])) {
+                            var wordList = lexemes[wordClass][wordSubClass];
+                            if ((wordClass == "irregularVerb") || (wordClass == "regularVerb")) {
+                                for (var w = 0; w < wordList.length; w++) {
+                                    var index = wordList[w].indexOf(core.toLowerCase(words[k]))
+                                    if (index != -1) {
+                                        var subClass = 'Infinitive';
+                                        if (index == 1) {
+                                            subClass = 'SimplePast';
+                                        } else if (index == 2) {
+                                            subClass = 'PastParticiple';
+                                        }
+                                        token = {
+                                            "class": string.camelize(wordClass, true),
+                                            "subClass": subClass,
+                                            "object": wordList[w][0]
+                                        }
+                                        break;
+                                    }
+                                }
+                            } else if ((wordClass == "prefix") || (wordClass == "suffix")) {
+                                break;
+                            } else {
+                                if (wordList.includes(core.toLowerCase(words[k]))) {
+                                    token = {
+                                        "class": string.camelize(wordClass, true),
+                                        "subClass": string.camelize(wordSubClass, true),
+                                        "object": core.toLowerCase(words[k])
+                                    }
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                var omitWord = false;
+                for (var z = 0; z < classesToOmit.length; z++) {
+                    if ((core.toLowerCase(core.trim(classesToOmit[z])) == token.class) && (core.toLowerCase(core.trim(classesToOmit[z])) == token.subClass)) {
+                        omitWord = true;
+                    }
+                }
+                if (!omitWord) {
+                    tokens.push(token);
+                }
+            }
+
+            json.push(tokens);
+        }
+
+        return json;
     }
 
     thisLexer = this;
@@ -10155,8 +10241,9 @@ function Lexer() {
             // Command line options.
             var inputFile = '';
             var outputFile = '';
-            var sentenceSeparator = [':', ';', '.', '?', '!'];
-            
+            var sentencesSeparators = [':', ';', '.', '?', '!'];
+            var wordClassesToOmit = "";
+
             // Get command line arguments.
             if (argv.length > 2) {
                 var i = 2;
@@ -10167,10 +10254,14 @@ function Lexer() {
                         system.log('Options:');
                         system.log('-h     --help               Displays this help message;');
                         system.log('-o     [output.json]        Output report file name;');
+                        system.log('       --omit               Word classes to omit.');
                         process.exit(0);
                     } else if (argv[i] == '-o') {
                         i++;
                         outputFile = argv[i];
+                    } else if (argv[i] == '--omit') {
+                        i++;
+                        wordClassesToOmit = argv[i];
                     } else {
                         inputFile = argv[i];
                         break;
@@ -10192,62 +10283,10 @@ function Lexer() {
                                 file = files[i];
                                 
                                 var fileName = file.split('.').shift();
-                                var fileExtension = file.split('.').pop();
-
-                                var fileContents = read(String(file));
-
-                                var fileSentences = thisLexer.split(fileContents, sentenceSeparator);
-
-                                var json = [];
-
-                                function isNotEmpty(element) {
-                                    return element != '';
-                                }
                                 
-                                for (var j = 0; j < fileSentences.length; j++) {
-                                    var words = thisLexer.split(core.trim(fileSentences[j], "\r\n"), [' ', ',']).filter(isNotEmpty);
-                                    var tokens = [];
-                                    for (var k = 0; k < words.length; k++) {
-                                        var token = {
-                                            "wordClass": "unknown",
-                                            "wordSubClass": "unknown",
-                                            "word": words[k]
-                                        }
-                                        for (const wordClass in lexemes) {
-                                            for (const wordSubClass in lexemes[wordClass]) {
-                                                if (Array.isArray(lexemes[wordClass][wordSubClass])) {
-                                                    var wordList = lexemes[wordClass][wordSubClass];
-                                                    if ((wordClass == "irregularVerb") || (wordClass == "regularVerb")) {
-                                                        for (var w = 0; w < wordList.length; w++) {
-                                                            if (wordList[w].includes(core.toLowerCase(words[k]))) {
-                                                                token = {
-                                                                    "wordClass": wordClass,
-                                                                    "wordSubClass": wordSubClass,
-                                                                    "word": wordList[w][0]
-                                                                }
-                                                                break;
-                                                            }
-                                                        }
-                                                    } else if ((wordClass == "prefix") || (wordClass == "suffix")) {
-                                                        break;
-                                                    } else {
-                                                        if (wordList.includes(core.toLowerCase(words[k]))) {
-                                                            token = {
-                                                                "wordClass": wordClass,
-                                                                "wordSubClass": wordSubClass,
-                                                                "word": core.toLowerCase(words[k])
-                                                            }
-                                                            break;
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                        tokens.push(token);
-                                    }
-
-                                    json.push(tokens);
-                                }
+                                var fileContents = read(String(file));
+                                
+                                var json = thisLexer.getTokens(fileContents, sentencesSeparators, wordClassesToOmit);
 
                                 if (outputFile == '') {
                                     outputFile = fileName + '.json';
