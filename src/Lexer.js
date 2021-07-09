@@ -129,8 +129,48 @@ function Lexer() {
                                 }
                                 
                                 for (var j = 0; j < fileSentences.length; j++) {
-                                    var words = thisLexer.split(fileSentences[j], [' ', ',']).filter(isNotEmpty);
-                                    json.push(words);
+                                    var words = thisLexer.split(core.trim(fileSentences[j], "\r\n"), [' ', ',']).filter(isNotEmpty);
+                                    var tokens = [];
+                                    for (var k = 0; k < words.length; k++) {
+                                        var token = {
+                                            "wordClass": "unknown",
+                                            "wordSubClass": "unknown",
+                                            "word": words[k]
+                                        }
+                                        for (const wordClass in lexemes) {
+                                            for (const wordSubClass in lexemes[wordClass]) {
+                                                if (Array.isArray(lexemes[wordClass][wordSubClass])) {
+                                                    var wordList = lexemes[wordClass][wordSubClass];
+                                                    if ((wordClass == "irregularVerb") || (wordClass == "regularVerb")) {
+                                                        for (var w = 0; w < wordList.length; w++) {
+                                                            if (wordList[w].includes(core.toLowerCase(words[k]))) {
+                                                                token = {
+                                                                    "wordClass": wordClass,
+                                                                    "wordSubClass": wordSubClass,
+                                                                    "word": wordList[w][0]
+                                                                }
+                                                                break;
+                                                            }
+                                                        }
+                                                    } else if ((wordClass == "prefix") || (wordClass == "suffix")) {
+                                                        break;
+                                                    } else {
+                                                        if (wordList.includes(core.toLowerCase(words[k]))) {
+                                                            token = {
+                                                                "wordClass": wordClass,
+                                                                "wordSubClass": wordSubClass,
+                                                                "word": core.toLowerCase(words[k])
+                                                            }
+                                                            break;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        tokens.push(token);
+                                    }
+
+                                    json.push(tokens);
                                 }
 
                                 if (outputFile == '') {

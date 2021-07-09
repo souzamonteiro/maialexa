@@ -1,0 +1,5 @@
+[definite article]
+the
+[indefinite article]
+a
+an
