@@ -10153,6 +10153,7 @@ function Lexer() {
                 var token = {
                     "class": "Unknown",
                     "subClass": "Unknown",
+                    "subSubClass": "Unknown",
                     "object": words[k]
                 }
                 for (const wordClass in lexemes) {
@@ -10172,6 +10173,7 @@ function Lexer() {
                                         token = {
                                             "class": string.camelize(wordClass, true),
                                             "subClass": subClass,
+                                            "subSubClass": "Unknown",
                                             "object": wordList[w][0]
                                         }
                                         break;
@@ -10184,6 +10186,7 @@ function Lexer() {
                                     token = {
                                         "class": string.camelize(wordClass, true),
                                         "subClass": string.camelize(wordSubClass, true),
+                                        "subSubClass": "Unknown",
                                         "object": core.toLowerCase(words[k])
                                     }
                                     break;
