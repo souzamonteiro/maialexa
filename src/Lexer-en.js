@@ -53,7 +53,7 @@ function Lexer() {
         }
         
         for (var j = 0; j < textSentences.length; j++) {
-            var words = core.splitCSV(core.trim(textSentences[j], '\r\n'), ' ,').filter(isNotEmpty);
+            var words = core.splitCSV(core.trim(textSentences[j], '\r\n'), ' \t,\r\n', true).filter(isNotEmpty);
             var tokens = [];
             for (var k = 0; k < words.length; k++) {
                 var token = {

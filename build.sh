@@ -3,8 +3,8 @@
 rm -rf build/*
 rm -rf docs/*
 
-cp ../maiastudio/build/* ./js
-cp ../maiastudio/build/maiascript.js ./bin
+#cp ../maiastudio/build/* ./js
+#cp ../maiastudio/build/maiascript.js ./bin
 
 cat src/Shebang.js js/libmaia.js src/MkLexer.js > build/mklexer.js
 cp build/mklexer.js bin/
