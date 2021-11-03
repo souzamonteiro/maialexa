@@ -1,32 +1,34 @@
 {
-    "name": "maialexa",
-    "version": "1.0.0",
-    "description": "Maia Natural Language Compiler.",
-    "keywords": [
-      "maia",
-      "maiascript",
-      "javascript",
-      "Natural language compiler"
-    ],
-    "author": "The MaiaScript Team (https://www.maiascript.com)",
-    "license": "Apache-2.0",
-    "homepage": "https://www.maiascript.com",
-    "bugs": {
-      "url": "https://github.com/souzamonteiro/maialexa/issues"
-    },
-    "main": "",
-    "bin": {
-      "maiascript": ""
-    },
-    "scripts": {
-      "build": "./build.sh"
-    },
-    "directories": {
-      "example": "examples"
-    },
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/souzamonteiro/maialexa.git"
-    }
+  "name": "maialexa",
+  "version": "1.0.0",
+  "description": "Maia Natural Language Compiler.",
+  "keywords": [
+    "maia",
+    "maiascript",
+    "javascript",
+    "Natural language compiler"
+  ],
+  "author": "The MaiaScript Team (https://www.maiascript.com)",
+  "license": "Apache-2.0",
+  "homepage": "https://www.maiascript.com",
+  "bugs": {
+    "url": "https://github.com/souzamonteiro/maialexa/issues"
+  },
+  "main": "",
+  "bin": {
+    "maiascript": ""
+  },
+  "dependencies": {
+    "maiascript-cli": "^3.3.2"
+  },
+  "scripts": {
+    "build": "./build.sh"
+  },
+  "directories": {
+    "example": "examples"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/souzamonteiro/maialexa.git"
   }
-  
+}

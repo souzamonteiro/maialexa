@@ -471,6 +471,7 @@ exchange
 excitement
 excuse
 exercise
+existence
 exit
 experience
 expert
@@ -656,6 +657,7 @@ importance
 impress
 impression
 improvement
+inaction
 incident
 income
 increase
@@ -1137,6 +1139,7 @@ rise
 risk
 river
 road
+robot
 rock
 role
 roll

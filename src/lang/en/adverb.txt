@@ -69,6 +69,7 @@ tediously
 accidentally
 awkwardly
 blindly
+by
 coyly
 crazily
 defiantly
@@ -96,5 +97,7 @@ silently
 solemnly
 sternly
 technically
+through
+to
 unexpectedly
 wildly

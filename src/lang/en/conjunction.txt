@@ -13,6 +13,7 @@ because
 before
 despite
 even though
+except
 if
 in spite of
 once

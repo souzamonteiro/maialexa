@@ -8,6 +8,7 @@ address,addressed
 advertise,advertised
 agree,agreed
 aid,aided
+allow,allowed
 amuse,amused
 annoy,annoyed
 answer,answered
@@ -95,6 +96,7 @@ help,helped
 hunt,hunted
 hurry,hurried
 imagine,imagined
+injure,injured
 iron,ironed
 judge,judged
 kill,killed
@@ -113,6 +115,7 @@ measure,measured
 milk,milked
 miss,missed
 move,moved
+obey,obeyed
 observe,observed
 offer,offered
 open,opened
@@ -133,6 +136,7 @@ pray,prayed
 prefer,preferred
 promise,promised
 pronounce,pronounced
+protect,protected
 pull,pulled
 punish,punished
 push,pushed

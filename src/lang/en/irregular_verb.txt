@@ -84,7 +84,8 @@ may,might,might
 mean,meant,meant
 meet,met,met
 mow,mowed,mowed
-mow,mown;mown
+mow,mown,mown
+must,must,must
 overtake,overtook,overtaken
 pay,paid,paid
 put,put,put
