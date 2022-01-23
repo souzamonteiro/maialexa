@@ -1,0 +1,244 @@
+#!/usr/bin/env maiascript
+
+///
+/// @license
+/// Copyright 2020 Roberto Luiz Souza Monteiro,
+///                Renata Souza Barreto,
+///                Hernane Borges de Barros Pereira.
+///
+/// Licensed under the Apache License, Version 2.0 (the "License")
+/// you may not use this file except in compliance with the License.
+/// You may obtain a copy of the License at
+///
+///   http://www.apache.org/licenses/LICENSE-2.0
+///
+/// Unless required by applicable law or agreed to in writing, software
+/// distributed under the License is distributed on an "AS IS" BASIS,
+/// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, eitherMath.express or implied.
+/// See the License for the specific language governing permissions and
+/// limitations under the License.
+///
+
+///
+/// MaiaApp core class.
+/// @namespace maiaApp
+///
+namespace maiaApp {
+    appTitle = "MkPlural"
+    appName = "MkPlural"
+
+    // Interpret the options passed on the command line,
+    // process the files and generate the requested reports.
+    function run() {
+        // Supports only the Node.js interpreter.
+        if (core.type(process) != "undefined") {
+            command = "node"
+            
+            fs = system.require("fs")
+            readTextFile = fs.readFileSync
+            
+            // Read file callback.
+            function readFile(input) {
+                content = readTextFile(input, "utf-8")
+                return(content)
+            }
+            
+            // Command line options.
+            inputFile = ""
+            outputFile = ""
+            
+            // Get command line arguments.
+            if (system.argc > 1) {
+                i = 1
+                while (i < system.argc) {
+                    if ((system.argv[i] == "-h") | (system.argv[i] == "--help")) {
+                        system.log(this.appTitle + " Command Line Interface (CLI)")
+                        system.log("Usage: " + this.appName + " [options] [input file] [--] [arguments]")
+                        system.log("Options:")
+                        system.log("-h     --help               Displays this help message;")
+                        system.log("-o     [output file]        Output file name.")
+                        process.exit(0)
+                    } elseif (system.argv[i] == "-o") {
+                        i = i + 1
+                        outputFile = system.argv[i]
+                    } else {
+                        inputFile = system.argv[i]
+                        break
+                    }
+                    i = i + 1
+                }
+
+                if (inputFile != "") {
+                    local Glob = system.require("glob")
+                    // Process each file based on glob pattern.
+                    function processFiles(er, files) {
+                        if (files.length == 0) {
+                            system.log(this.appTitle + " Command Line Interface (CLI)")
+                            system.log("Usage: " + this.appName + " [options] [input file] [--] [arguments]")
+                        } else {
+                            for (i = 0; i < files.length; i = i + 1) {
+                                // Get the full file name.
+                                file = files[i]
+                                
+                                // Get the file without extension.
+                                fileName = file.split(".")
+                                fileName = fileName.shift()
+
+                                // Get the file name extension.
+                                fileExtension = file.split(".")
+                                fileExtension = fileExtension.pop()
+
+                                // Read the file contents.
+                                fileContents = readFile(String(file))
+
+                                fileLines = core.split(fileContents, "\r\n")
+
+                                outputFileContents = "[noun plural]\n"
+
+                                for (i = 1; i < fileLines.length; i = i + 1) {
+                                    lineContents = core.trim(fileLines[i])
+                                    if (lineContents.length >= 2) {
+                                        last2chars = lineContents.substr(lineContents.length - 2, lineContents.length - 1)
+                                        lastChar = lineContents[lineContents.length - 1]
+                                        // Word ends in s, ss, sh, ch, x or z:
+                                        if (last2chars == "ss") {
+                                            wordPlural = lineContents + "es"
+                                        } elseif (last2chars == "sh") {
+                                            wordPlural = lineContents + "es"
+                                        } elseif (last2chars == "ch") {
+                                            wordPlural = lineContents + "es"
+                                        } else {
+                                            if ((lastChar == "s") || (lastChar == "z")) {
+                                                if (last2chars == "us") {
+                                                    if (lineContents.length == 3) {
+                                                        wordPlural = lineContents + "es"
+                                                    } else {
+                                                        wordPlural = lineContents.substr(0, lineContents.length - 2) + "i"
+                                                    }
+                                                } elseif (last2chars == "is") {
+                                                    wordPlural = lineContents.substr(0, lineContents.length - 2) + "es"
+                                                } else {
+                                                    if (lineContents == "fez") {
+                                                        wordPlural = "fezzes"
+                                                    } elseif (lineContents == "gas") {
+                                                        wordPlural = "gasses"
+                                                    } elseif (lineContents == "series") {
+                                                        wordPlural = "series"
+                                                    } elseif (lineContents == "species") {
+                                                        wordPlural = "species"
+                                                    } else {
+                                                        wordPlural = lineContents + "es"
+                                                    }
+                                                }
+                                            } elseif (lastChar == "x") {
+                                                wordPlural = lineContents + "es"
+                                            } else {
+                                                if (last2chars == "fe") {
+                                                    wordPlural = lineContents.substr(0, lineContents.length - 2) + "ves"
+                                                } elseif (lastChar == "f") {
+                                                    if (lineContents == "roof") {
+                                                        wordPlural = "roofs"
+                                                    } elseif (lineContents == "belief") {
+                                                        wordPlural = "beliefs"
+                                                    } elseif (lineContents == "chef") {
+                                                        wordPlural = "chefs"
+                                                    } elseif (lineContents == "chief") {
+                                                        wordPlural = "chiefs"
+                                                    } else {
+                                                        wordPlural = lineContents.substr(0, lineContents.length - 1) + "ves"
+                                                    }
+                                                } else {
+                                                    if (lastChar == "y") {
+                                                        if (core.includes("aeiou", last2chars[0])) {
+                                                            wordPlural = lineContents + "s"
+                                                        } else {
+                                                            wordPlural = lineContents.substr(0, lineContents.length - 1) + "ies"
+                                                        }
+                                                    } else {
+                                                        if (lastChar == "o") {
+                                                            if (core.includes(["photo", "piano", "halo"], lineContents)) {
+                                                                wordPlural = lineContents + "s"
+                                                            } else {
+                                                                wordPlural = lineContents + "es"
+                                                            }
+                                                        } else {
+                                                            if (last2chars == "on") {
+                                                                if (lineContents == "person") {
+                                                                    wordPlural = "people"
+                                                                } else {
+                                                                    wordPlural = lineContents.substr(0, lineContents.length - 2) + "a"
+                                                                }
+                                                            } else {
+                                                                if (lineContents == "sheep") {
+                                                                    wordPlural = "sheep"
+                                                                } elseif (lineContents == "deer") {
+                                                                    wordPlural = "deer"
+                                                                } elseif (lineContents == "child") {
+                                                                    wordPlural = "children"
+                                                                } elseif (lineContents == "goose") {
+                                                                    wordPlural = "geese"
+                                                                } elseif (lineContents == "man") {
+                                                                    wordPlural = "men"
+                                                                } elseif (lineContents == "woman") {
+                                                                    wordPlural = "women"
+                                                                } elseif (lineContents == "tooth") {
+                                                                    wordPlural = "teeth"
+                                                                } elseif (lineContents == "foot") {
+                                                                    wordPlural = "feet"
+                                                                } elseif (lineContents == "mouse") {
+                                                                    wordPlural = "mice"
+                                                                } else {
+                                                                    wordPlural = lineContents + "s"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    } else {
+                                        wordPlural = lineContents
+                                    }
+                                    if (wordPlural.length > 0) {
+                                        outputFileContents = outputFileContents + wordPlural + "\n"
+                                    }
+                                }
+
+                                // Do something...
+
+                                // Sets the output file.
+                                if (outputFile == "") {
+                                    outputFile = fileName + ".out"
+                                }
+
+                                // Write something to the output file.
+                                function errorCallback(err) {
+                                    if (err) {
+                                        throw(err)
+                                    }
+                                }
+                                fs.writeFile(outputFile, outputFileContents, errorCallback)
+                            }
+                        }
+                    }
+
+                    options = []
+
+                    // Get all file names based on glob pattern.
+                    local glob := Glob(inputFile, options, processFiles)
+                } else {
+                    system.log(this.appTitle + " Command Line Interface (CLI)")
+                    system.log("Usage: " + this.appName + " [options] [input file] [--] [arguments]")
+                }
+            } else {
+                system.log("Do something...")
+            }
+        }
+    }
+}
+
+// Run the MaiaApp code if this script has been invoked
+// from the command line.
+if (core.type(process) != "undefined") {
+    maiaApp.run()
+}
