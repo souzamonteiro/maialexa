@@ -124,7 +124,7 @@
         "class": "NounPlural",
         "subClass": "NounPlural",
         "subSubClass": "Unknown",
-        "object": "orders"
+        "object": "order"
     }, {
         "class": "IrregularVerb",
         "subClass": "PastParticiple",
@@ -149,7 +149,7 @@
         "class": "NounPlural",
         "subClass": "NounPlural",
         "subSubClass": "Unknown",
-        "object": "beings"
+        "object": "being"
     }, {
         "class": "Conjunction",
         "subClass": "SubordinatingConjunction",
@@ -169,7 +169,7 @@
         "class": "NounPlural",
         "subClass": "NounPlural",
         "subSubClass": "Unknown",
-        "object": "orders"
+        "object": "order"
     }, {
         "class": "IrregularVerb",
         "subClass": "SimplePast",

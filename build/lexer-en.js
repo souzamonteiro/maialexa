@@ -10518,6 +10518,18 @@ function Lexer() {
                                         break;
                                     }
                                 }
+                            } else if (wordClass == "nounPlural") {
+                                singularWordList = lexemes["nounSingular"]["nounSingular"];
+                                wordIndex = wordList.indexOf(core.toLowerCase(words[k])) 
+                                if (wordIndex != -1) {
+                                    token = {
+                                        "class": string.camelize(wordClass, true),
+                                        "subClass": string.camelize(wordSubClass, true),
+                                        "subSubClass": "Unknown",
+                                        "object": core.toLowerCase(singularWordList[wordIndex])
+                                    }
+                                    break;
+                                }
                             } else if ((wordClass == "prefix") || (wordClass == "suffix")) {
                                 break;
                             } else {
