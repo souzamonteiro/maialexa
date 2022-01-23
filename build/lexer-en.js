@@ -10493,7 +10493,7 @@ function Lexer() {
                     "class": "Unknown",
                     "subClass": "Unknown",
                     "subSubClass": "Unknown",
-                    "object": words[k]
+                    "object": core.toLowerCase(words[k])
                 }
                 for (const wordClass in lexemes) {
                     for (const wordSubClass in lexemes[wordClass]) {
@@ -10513,7 +10513,7 @@ function Lexer() {
                                             "class": string.camelize(wordClass, true),
                                             "subClass": subClass,
                                             "subSubClass": "Unknown",
-                                            "object": wordList[w][0]
+                                            "object": core.toLowerCase(wordList[w][0])
                                         }
                                         break;
                                     }
