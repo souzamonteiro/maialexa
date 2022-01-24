@@ -20,13 +20,127 @@
 ///
 
 ///
-/// MaiaApp core class.
-/// @namespace maiaApp
+/// mkPlural core class.
+/// @namespace mkPlural
 ///
-namespace maiaApp {
+namespace mkPlural {
     appTitle = "MkPlural"
     appName = "MkPlural"
 
+    ///
+    /// Put a word in the plural.
+    /// @method toPlural
+    /// @memberof mkPlural
+    /// @param {string}   word - The word that will go into the plural.
+    /// @return {string}  Returns the word in the plural.
+    ///
+    function toPlural(word) {
+        if (word.length >= 2) {
+            last2chars = word.substr(word.length - 2, word.length - 1)
+            lastChar = word[word.length - 1]
+            // Word ends in s, ss, sh, ch, x or z:
+            if (last2chars == "ss") {
+                wordPlural = word + "es"
+            } elseif (last2chars == "sh") {
+                wordPlural = word + "es"
+            } elseif (last2chars == "ch") {
+                wordPlural = word + "es"
+            } else {
+                if ((lastChar == "s") || (lastChar == "z")) {
+                    if (last2chars == "us") {
+                        if (word.length == 3) {
+                            wordPlural = word + "es"
+                        } else {
+                            wordPlural = word.substr(0, word.length - 2) + "i"
+                        }
+                    } elseif (last2chars == "is") {
+                        wordPlural = word.substr(0, word.length - 2) + "es"
+                    } else {
+                        if (word == "fez") {
+                            wordPlural = "fezzes"
+                        } elseif (word == "gas") {
+                            wordPlural = "gasses"
+                        } elseif (word == "series") {
+                            wordPlural = "series"
+                        } elseif (word == "species") {
+                            wordPlural = "species"
+                        } else {
+                            wordPlural = word + "es"
+                        }
+                    }
+                } elseif (lastChar == "x") {
+                    wordPlural = word + "es"
+                } else {
+                    if (last2chars == "fe") {
+                        wordPlural = word.substr(0, word.length - 2) + "ves"
+                    } elseif (lastChar == "f") {
+                        if (word == "roof") {
+                            wordPlural = "roofs"
+                        } elseif (word == "belief") {
+                            wordPlural = "beliefs"
+                        } elseif (word == "chef") {
+                            wordPlural = "chefs"
+                        } elseif (word == "chief") {
+                            wordPlural = "chiefs"
+                        } else {
+                            wordPlural = word.substr(0, word.length - 1) + "ves"
+                        }
+                    } else {
+                        if (lastChar == "y") {
+                            if (core.includes("aeiou", last2chars[0])) {
+                                wordPlural = word + "s"
+                            } else {
+                                wordPlural = word.substr(0, word.length - 1) + "ies"
+                            }
+                        } else {
+                            if (lastChar == "o") {
+                                if (core.includes(["photo", "piano", "halo"], word)) {
+                                    wordPlural = word + "s"
+                                } else {
+                                    wordPlural = word + "es"
+                                }
+                            } else {
+                                if (last2chars == "on") {
+                                    if (word == "person") {
+                                        wordPlural = "people"
+                                    } else {
+                                        wordPlural = word.substr(0, word.length - 2) + "a"
+                                    }
+                                } else {
+                                    if (word == "sheep") {
+                                        wordPlural = "sheep"
+                                    } elseif (word == "deer") {
+                                        wordPlural = "deer"
+                                    } elseif (word == "child") {
+                                        wordPlural = "children"
+                                    } elseif (word == "goose") {
+                                        wordPlural = "geese"
+                                    } elseif (word == "man") {
+                                        wordPlural = "men"
+                                    } elseif (word == "woman") {
+                                        wordPlural = "women"
+                                    } elseif (word == "tooth") {
+                                        wordPlural = "teeth"
+                                    } elseif (word == "foot") {
+                                        wordPlural = "feet"
+                                    } elseif (word == "mouse") {
+                                        wordPlural = "mice"
+                                    } else {
+                                        wordPlural = word + "s"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            wordPlural = word
+        }
+        
+        return(wordPlural)
+    }
+    
     // Interpret the options passed on the command line,
     // process the files and generate the requested reports.
     function run() {
@@ -97,108 +211,9 @@ namespace maiaApp {
 
                                 for (i = 1; i < fileLines.length; i = i + 1) {
                                     lineContents = core.trim(fileLines[i])
-                                    if (lineContents.length >= 2) {
-                                        last2chars = lineContents.substr(lineContents.length - 2, lineContents.length - 1)
-                                        lastChar = lineContents[lineContents.length - 1]
-                                        // Word ends in s, ss, sh, ch, x or z:
-                                        if (last2chars == "ss") {
-                                            wordPlural = lineContents + "es"
-                                        } elseif (last2chars == "sh") {
-                                            wordPlural = lineContents + "es"
-                                        } elseif (last2chars == "ch") {
-                                            wordPlural = lineContents + "es"
-                                        } else {
-                                            if ((lastChar == "s") || (lastChar == "z")) {
-                                                if (last2chars == "us") {
-                                                    if (lineContents.length == 3) {
-                                                        wordPlural = lineContents + "es"
-                                                    } else {
-                                                        wordPlural = lineContents.substr(0, lineContents.length - 2) + "i"
-                                                    }
-                                                } elseif (last2chars == "is") {
-                                                    wordPlural = lineContents.substr(0, lineContents.length - 2) + "es"
-                                                } else {
-                                                    if (lineContents == "fez") {
-                                                        wordPlural = "fezzes"
-                                                    } elseif (lineContents == "gas") {
-                                                        wordPlural = "gasses"
-                                                    } elseif (lineContents == "series") {
-                                                        wordPlural = "series"
-                                                    } elseif (lineContents == "species") {
-                                                        wordPlural = "species"
-                                                    } else {
-                                                        wordPlural = lineContents + "es"
-                                                    }
-                                                }
-                                            } elseif (lastChar == "x") {
-                                                wordPlural = lineContents + "es"
-                                            } else {
-                                                if (last2chars == "fe") {
-                                                    wordPlural = lineContents.substr(0, lineContents.length - 2) + "ves"
-                                                } elseif (lastChar == "f") {
-                                                    if (lineContents == "roof") {
-                                                        wordPlural = "roofs"
-                                                    } elseif (lineContents == "belief") {
-                                                        wordPlural = "beliefs"
-                                                    } elseif (lineContents == "chef") {
-                                                        wordPlural = "chefs"
-                                                    } elseif (lineContents == "chief") {
-                                                        wordPlural = "chiefs"
-                                                    } else {
-                                                        wordPlural = lineContents.substr(0, lineContents.length - 1) + "ves"
-                                                    }
-                                                } else {
-                                                    if (lastChar == "y") {
-                                                        if (core.includes("aeiou", last2chars[0])) {
-                                                            wordPlural = lineContents + "s"
-                                                        } else {
-                                                            wordPlural = lineContents.substr(0, lineContents.length - 1) + "ies"
-                                                        }
-                                                    } else {
-                                                        if (lastChar == "o") {
-                                                            if (core.includes(["photo", "piano", "halo"], lineContents)) {
-                                                                wordPlural = lineContents + "s"
-                                                            } else {
-                                                                wordPlural = lineContents + "es"
-                                                            }
-                                                        } else {
-                                                            if (last2chars == "on") {
-                                                                if (lineContents == "person") {
-                                                                    wordPlural = "people"
-                                                                } else {
-                                                                    wordPlural = lineContents.substr(0, lineContents.length - 2) + "a"
-                                                                }
-                                                            } else {
-                                                                if (lineContents == "sheep") {
-                                                                    wordPlural = "sheep"
-                                                                } elseif (lineContents == "deer") {
-                                                                    wordPlural = "deer"
-                                                                } elseif (lineContents == "child") {
-                                                                    wordPlural = "children"
-                                                                } elseif (lineContents == "goose") {
-                                                                    wordPlural = "geese"
-                                                                } elseif (lineContents == "man") {
-                                                                    wordPlural = "men"
-                                                                } elseif (lineContents == "woman") {
-                                                                    wordPlural = "women"
-                                                                } elseif (lineContents == "tooth") {
-                                                                    wordPlural = "teeth"
-                                                                } elseif (lineContents == "foot") {
-                                                                    wordPlural = "feet"
-                                                                } elseif (lineContents == "mouse") {
-                                                                    wordPlural = "mice"
-                                                                } else {
-                                                                    wordPlural = lineContents + "s"
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    } else {
-                                        wordPlural = lineContents
-                                    }
+                                    
+                                    wordPlural = mkPlural.toPlural(lineContents)
+
                                     if (wordPlural.length > 0) {
                                         outputFileContents = outputFileContents + wordPlural + "\n"
                                     }
@@ -237,8 +252,8 @@ namespace maiaApp {
     }
 }
 
-// Run the MaiaApp code if this script has been invoked
+// Run the mkPlural code if this script has been invoked
 // from the command line.
 if (core.type(process) != "undefined") {
-    maiaApp.run()
+    mkPlural.run()
 }
