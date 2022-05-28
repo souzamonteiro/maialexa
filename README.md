@@ -1,2 +1,2 @@
-# MaiaLang
+# MaiaLexa
 Maia Natural Language Compiler.
