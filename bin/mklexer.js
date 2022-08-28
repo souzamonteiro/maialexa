@@ -10498,7 +10498,7 @@ function MkLexer() {
             if (argv.length > 2) {
                 var i = 2;
                 while (i < argv.length) {
-                    if ((argv[i] == '-h') | (argv[i] == '--help')) {
+                    if ((argv[i] == '-h') || (argv[i] == '--help')) {
                         system.log('MkLexer Command Line Interface (CLI)');
                         system.log('Usage: mklexer [options] [file.txt] [--] [arguments]');
                         system.log('Options:');
