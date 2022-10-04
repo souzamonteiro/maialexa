@@ -85,17 +85,22 @@ function Lexer() {
                                         break;
                                     }
                                 }
-                            } else if (wordClass == "nounPlural") {
-                                singularWordList = lexemes["nounSingular"]["nounSingular"];
-                                wordIndex = wordList.indexOf(core.toLowerCase(words[k])) 
-                                if (wordIndex != -1) {
-                                    token = {
-                                        "class": string.camelize(wordClass, true),
-                                        "subClass": string.camelize(wordSubClass, true),
-                                        "subSubClass": "Unknown",
-                                        "object": core.toLowerCase(singularWordList[wordIndex])
+                            } else if (wordClass == "noun") {
+                                for (var w = 0; w < wordList.length; w++) {
+                                    var index = wordList[w].indexOf(core.toLowerCase(words[k]))
+                                    if (index != -1) {
+                                        var subClass = 'Singular';
+                                        if (index == 1) {
+                                            subClass = 'Plural';
+                                        }
+                                        token = {
+                                            "class": string.camelize(wordClass, true),
+                                            "subClass": subClass,
+                                            "subSubClass": "Unknown",
+                                            "object": core.toLowerCase(wordList[w][0])
+                                        }
+                                        break;
                                     }
-                                    break;
                                 }
                             } else if ((wordClass == "prefix") || (wordClass == "suffix")) {
                                 break;

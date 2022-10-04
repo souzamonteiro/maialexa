@@ -207,7 +207,7 @@ namespace mkPlural {
 
                                 fileLines = core.split(fileContents, "\r\n")
 
-                                outputFileContents = "[noun plural]\n"
+                                outputFileContents = "[noun]\n"
 
                                 for (i = 1; i < fileLines.length; i = i + 1) {
                                     lineContents = core.trim(fileLines[i])
@@ -215,7 +215,7 @@ namespace mkPlural {
                                     wordPlural = mkPlural.toPlural(lineContents)
 
                                     if (wordPlural.length > 0) {
-                                        outputFileContents = outputFileContents + wordPlural + "\n"
+                                        outputFileContents = outputFileContents + lineContents + "," + wordPlural + "\n"
                                     }
                                 }
 
