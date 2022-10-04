@@ -6,16 +6,17 @@ rm -rf docs/*
 #cp ../maiastudio/build/* ./js
 #cp ../maiastudio/build/maiascript.js ./bin
 
-cp src/MkPlural.maia bin/mkplural.maia
+cp src/MkPlural-en.maia bin/mkplural-en.maia
 
 cat src/Shebang.js js/libmaia.js src/MkLexer.js > build/mklexer.js
 cp build/mklexer.js bin/
 
 chmod 755 bin/*
 
-./bin/mkplural.maia -o src/lang/en/noun_plural.txt src/lang/en/noun_singular.txt
+./bin/mkplural-en.maia -o src/lang/en/nouns/noun_plural.txt src/lang/en/nouns/noun_singular.txt
+cat src/lang/en/nouns/noun_singular.txt src/lang/en/nouns/noun_plural.txt > src/lang/en/noun.txt 
 
-./bin/mklexer.js -o build/Lexemes-en.json "src/lang/en/*"
+./bin/mklexer.js -o build/Lexemes-en.json "src/lang/en/*.txt"
 cp build/Lexemes-en.json src/
 
 cat src/Shebang.js js/libmaia.js src/Lexemes-en.json src/Lexer-en.js > build/lexer-en.js

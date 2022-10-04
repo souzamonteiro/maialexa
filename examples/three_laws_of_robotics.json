@@ -5,7 +5,7 @@
         "subSubClass": "Unknown",
         "object": "a"
     }, {
-        "class": "NounSingular",
+        "class": "Noun",
         "subClass": "NounSingular",
         "subSubClass": "Unknown",
         "object": "robot"
@@ -30,12 +30,12 @@
         "subSubClass": "Unknown",
         "object": "a"
     }, {
-        "class": "NounSingular",
+        "class": "Noun",
         "subClass": "NounSingular",
         "subSubClass": "Unknown",
         "object": "human"
     }, {
-        "class": "NounSingular",
+        "class": "Noun",
         "subClass": "NounSingular",
         "subSubClass": "Unknown",
         "object": "being"
@@ -50,7 +50,7 @@
         "subSubClass": "Unknown",
         "object": "through"
     }, {
-        "class": "NounSingular",
+        "class": "Noun",
         "subClass": "NounSingular",
         "subSubClass": "Unknown",
         "object": "inaction"
@@ -65,12 +65,12 @@
         "subSubClass": "Unknown",
         "object": "a"
     }, {
-        "class": "NounSingular",
+        "class": "Noun",
         "subClass": "NounSingular",
         "subSubClass": "Unknown",
         "object": "human"
     }, {
-        "class": "NounSingular",
+        "class": "Noun",
         "subClass": "NounSingular",
         "subSubClass": "Unknown",
         "object": "being"
@@ -90,7 +90,7 @@
         "subSubClass": "Unknown",
         "object": "to"
     }, {
-        "class": "NounSingular",
+        "class": "Noun",
         "subClass": "NounSingular",
         "subSubClass": "Unknown",
         "object": "harm"
@@ -101,7 +101,7 @@
         "subSubClass": "Unknown",
         "object": "a"
     }, {
-        "class": "NounSingular",
+        "class": "Noun",
         "subClass": "NounSingular",
         "subSubClass": "Unknown",
         "object": "robot"
@@ -121,10 +121,10 @@
         "subSubClass": "Unknown",
         "object": "the"
     }, {
-        "class": "NounPlural",
+        "class": "Noun",
         "subClass": "NounPlural",
         "subSubClass": "Unknown",
-        "object": "order"
+        "object": "orders"
     }, {
         "class": "IrregularVerb",
         "subClass": "PastParticiple",
@@ -141,15 +141,15 @@
         "subSubClass": "Unknown",
         "object": "by"
     }, {
-        "class": "NounSingular",
+        "class": "Noun",
         "subClass": "NounSingular",
         "subSubClass": "Unknown",
         "object": "human"
     }, {
-        "class": "NounPlural",
+        "class": "Noun",
         "subClass": "NounPlural",
         "subSubClass": "Unknown",
-        "object": "being"
+        "object": "beings"
     }, {
         "class": "Conjunction",
         "subClass": "SubordinatingConjunction",
@@ -166,17 +166,17 @@
         "subSubClass": "Unknown",
         "object": "such"
     }, {
-        "class": "NounPlural",
+        "class": "Noun",
         "subClass": "NounPlural",
         "subSubClass": "Unknown",
-        "object": "order"
+        "object": "orders"
     }, {
         "class": "IrregularVerb",
         "subClass": "SimplePast",
         "subSubClass": "Unknown",
         "object": "will"
     }, {
-        "class": "NounSingular",
+        "class": "Noun",
         "subClass": "NounSingular",
         "subSubClass": "Unknown",
         "object": "conflict"
@@ -196,7 +196,7 @@
         "subSubClass": "Unknown",
         "object": "first"
     }, {
-        "class": "NounSingular",
+        "class": "Noun",
         "subClass": "NounSingular",
         "subSubClass": "Unknown",
         "object": "law"
@@ -207,7 +207,7 @@
         "subSubClass": "Unknown",
         "object": "a"
     }, {
-        "class": "NounSingular",
+        "class": "Noun",
         "subClass": "NounSingular",
         "subSubClass": "Unknown",
         "object": "robot"
@@ -232,7 +232,7 @@
         "subSubClass": "Unknown",
         "object": "own"
     }, {
-        "class": "NounSingular",
+        "class": "Noun",
         "subClass": "NounSingular",
         "subSubClass": "Unknown",
         "object": "existence"
@@ -242,7 +242,7 @@
         "subSubClass": "Unknown",
         "object": "as"
     }, {
-        "class": "NounSingular",
+        "class": "Noun",
         "subClass": "NounSingular",
         "subSubClass": "Unknown",
         "object": "long"
@@ -257,7 +257,7 @@
         "subSubClass": "Unknown",
         "object": "such"
     }, {
-        "class": "NounSingular",
+        "class": "Noun",
         "subClass": "NounSingular",
         "subSubClass": "Unknown",
         "object": "protection"
@@ -272,7 +272,7 @@
         "subSubClass": "Unknown",
         "object": "not"
     }, {
-        "class": "NounSingular",
+        "class": "Noun",
         "subClass": "NounSingular",
         "subSubClass": "Unknown",
         "object": "conflict"
@@ -297,12 +297,12 @@
         "subSubClass": "Unknown",
         "object": "or"
     }, {
-        "class": "NounSingular",
+        "class": "Noun",
         "subClass": "NounSingular",
         "subSubClass": "Unknown",
         "object": "second"
     }, {
-        "class": "NounSingular",
+        "class": "Noun",
         "subClass": "NounSingular",
         "subSubClass": "Unknown",
         "object": "law"
