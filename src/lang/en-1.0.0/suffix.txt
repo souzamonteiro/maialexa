@@ -2,32 +2,19 @@
 acy
 al
 ance
-ary
-ation
-cy
 dom
-ee
 ence
 er
-ess
-ette
-hood
-iana
 ism
 ist
 ity
-let
-ling
 ment
 ness
 or
-scape
 ship
 sion
-th
 tion
 ty
-ure
 [verb suffix]
 ate
 en
@@ -38,12 +25,6 @@ ize
 [adjective suffix]
 able
 al
-ant
-ate
-atory
-en
-ent
-ese
 esque
 ful
 ible
@@ -53,11 +34,5 @@ ious
 ish
 ive
 less
-ly
 ous
 y
-[adverb suffix]
-ly
-ward
-wards
-wise
