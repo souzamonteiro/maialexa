@@ -2,6 +2,8 @@
 #base form,past simple,past participle
 arise,arose,arisen
 awake,awoke,awoken
+is,was,been
+am,was,been
 be,was,been
 be,were,been
 bear,bore,born
@@ -35,6 +37,7 @@ cut,cut,cut
 deal,dealt,dealt
 dig,dug,dug
 do,did,done
+does,did,done
 draw,drew,drawn
 dream,dreamed,dreamed
 dream,dreamt,dreamt
@@ -57,6 +60,7 @@ go,went,gone
 grind,ground,ground
 grow,grew,grown
 hang,hung,hung
+has,had,had
 have,had,had
 hear,heard,heard
 hide,hid,hidden

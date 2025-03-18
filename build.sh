@@ -3,8 +3,8 @@
 rm -rf build/*
 rm -rf docs/*
 
-#cp ../maiastudio/build/* ./js
-#cp ../maiastudio/build/maiascript.js ./bin
+cp ../maiastudio/build/* ./js
+cp ../maiastudio/build/maiascript.js ./bin
 
 cp src/MkPlural-en.maia bin/mkplural-en.maia
 
@@ -13,7 +13,7 @@ cp build/mklexer.js bin/
 
 chmod 755 bin/*
 
-#./bin/mkplural-en.maia -o src/lang/en/noun.txt src/lang/en/nouns/noun_singular.txt
+./bin/mkplural-en.maia -o src/lang/en/noun.txt src/lang/en/nouns/noun_singular.txt
 
 ./bin/mklexer.js -o build/Lexemes-en.json "src/lang/en/*.txt"
 cp build/Lexemes-en.json src/
