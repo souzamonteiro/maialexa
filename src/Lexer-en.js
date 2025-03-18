@@ -56,6 +56,8 @@ function Lexer() {
             var words = core.splitCSV(core.trim(textSentences[j], '\r\n'), ' \t,\r\n', true).filter(isNotEmpty);
             var tokens = [];
             for (var k = 0; k < words.length; k++) {
+                words[k] = core.trim(words[k], sentencesSeparators);
+                words[k] = core.trim(words[k], '()');
                 var token = {
                     "class": "Unknown",
                     "subClass": "Unknown",
