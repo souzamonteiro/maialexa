@@ -170,6 +170,41 @@ function Lexer() {
             var outputFile = '';
             var sentencesSeparators = ':;.?!';
             var wordClassesToOmit = "";
+            var createDLF = false;
+            var dflClasses = {
+                "Adverb": "ADV",
+                "AdverbAboutTime": "ADV",
+                "AdverbThatDescribeSpeed": "ADV",
+                "ArchaicPronoun": "PRO",
+                "Article": "NOTFOUND",
+                "Conjunction": "NOTFOUND",
+                "CoordinatingConjunction": "CONJC",
+                "DefiniteArticle": "NOTFOUND",
+                "DemonstrativePronoun": "PRO",
+                "IndefiniteArticle": "NOTFOUND",
+                "IndefinitePronoun": "PRO",
+                "IntensivePronoun": "PRO",
+                "Interjection": "INTJ",
+                "InterrogativePronoun": "PRO",
+                "IrregularVerb": "V",
+                "LinkingWord": "NOTFOUND",
+                "Name": "N",
+                "NegativeAdverb": "ADV",
+                "Noun": "N",
+                "ObjectPronoun": "PRO",
+                "PersonalPronoun": "PRO",
+                "PositiveAdverb": "ADV",
+                "PossessiveAdjectivePronoun": "PRO",
+                "PossessivePronoun": "PRO",
+                "Preposition": "PREP",
+                "PronominalAdjective": "PRO",
+                "Pronoun": "PRO",
+                "ReflexivePronoun": "PRO",
+                "RegularVerb": "V",
+                "RelativePronoun": "PRO",
+                "SubordinatingConjunction": "CONJS",
+                "Unknown": "NOTFOUND"
+            };
 
             // Get command line arguments.
             if (argv.length > 2) {
@@ -181,11 +216,14 @@ function Lexer() {
                         system.log('Options:');
                         system.log('-h     --help               Displays this help message;');
                         system.log('-o     [output.json]        Output report file name;');
+                        system.log('       --dlf                Creates a DLF file.');
                         system.log('       --omit               Word classes to omit.');
                         process.exit(0);
                     } else if (argv[i] == '-o') {
                         i++;
                         outputFile = argv[i];
+                    } else if (argv[i] == '--dlf') {
+                        createDLF = true;
                     } else if (argv[i] == '--omit') {
                         i++;
                         wordClassesToOmit = argv[i];
@@ -225,6 +263,26 @@ function Lexer() {
                                     }
                                 });
                                 
+                                if (createDLF) {
+                                    var dlf = "";
+
+                                    for (var j = 0; j < json.length; j++) {
+                                        var sentence = json[j];
+                                        for (var k = 0; k < sentence.length; k++) {
+                                            var word = sentence[k];
+                                            dlf += word.object + "\t" + word.subClass + "\n";
+                                        }
+                                        dlf += "{S}" + "\n";
+                                    }
+
+                                    outputFile = fileName + '.dlf';
+                                    
+                                    fs.writeFile(outputFile, dlf, function(err) {
+                                        if (err) {
+                                            throw err;
+                                        }
+                                    });
+                                }
                                 outputFile = '';
                             }
                         }

@@ -1,0 +1,83 @@
+graph	Unknown
+is	Unknown
+formed	Unknown
+two	Noun
+set	Noun
+{S}
+first	Adverb
+finite	Unknown
+non-empty	Unknown
+consist	Noun
+vertices	Unknown
+{S}
+second	Noun
+consist	Noun
+edge	Noun
+arcs	Unknown
+can	Noun
+connect	Unknown
+two	Noun
+vertices	Unknown
+{S}
+call	RegularVerb
+network	Noun
+entities	Unknown
+natural	Noun
+social	Unknown
+phenomena	Unknown
+hold	Noun
+relationship	Noun
+{S}
+network	Noun
+are	Unknown
+represented	Unknown
+mathematically	Unknown
+graphs	Unknown
+{S}
+imagine	RegularVerb
+network	Noun
+healthcare	Unknown
+professional	Noun
+{S}
+doctor	Noun
+nurse	Noun
+are	Unknown
+example	Noun
+possible	Noun
+vertices	Unknown
+network	Noun
+{S}
+connections	Unknown
+can	Noun
+represent	Unknown
+occurrence	Unknown
+daily	Unknown
+interaction	Noun
+{S}
+thus	Unknown
+if	Noun
+two	Noun
+professional	Noun
+do	IrregularVerb
+not	Adverb
+interact	Unknown
+daily	Unknown
+an	Name
+edge	Noun
+arc	Unknown
+two	Noun
+vertices	Unknown
+represent	Unknown
+is	Unknown
+absent	Unknown
+{S}
+conversely	Unknown
+if	Noun
+do	IrregularVerb
+so	Name
+edge	Noun
+arc	Unknown
+is	Unknown
+present	Noun
+{S}
+{S}

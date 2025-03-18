@@ -29758,6 +29758,25 @@ function Lexer() {
                                     }
                                 });
                                 
+                                var dlf = "";
+
+                                for (var j = 0; j < json.length; j++) {
+                                    var sentence = json[j];
+                                    for (var k = 0; k < sentence.length; k++) {
+                                        var word = sentence[k];
+                                        dlf += word.object + "\t" + word.class + "\n";
+                                    }
+                                    dlf += "{S}" + "\n";
+                                }
+
+                                outputFile = fileName + '.dlf';
+                                
+                                fs.writeFile(outputFile, dlf, function(err) {
+                                    if (err) {
+                                        throw err;
+                                    }
+                                });
+
                                 outputFile = '';
                             }
                         }

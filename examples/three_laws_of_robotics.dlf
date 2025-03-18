@@ -1,0 +1,40 @@
+robot	Noun
+may	Name
+not	Adverb
+injure	RegularVerb
+human	Noun
+being	Noun
+inaction	Noun
+allow	RegularVerb
+human	Noun
+being	Noun
+come	IrregularVerb
+harm	Noun
+{S}
+robot	Noun
+must	IrregularVerb
+obey	RegularVerb
+order	Noun
+give	IrregularVerb
+human	Noun
+being	Noun
+order	Noun
+will	IrregularVerb
+conflict	Noun
+first	Adverb
+law	Noun
+{S}
+robot	Noun
+must	IrregularVerb
+protect	RegularVerb
+existence	Noun
+long	Noun
+protection	Noun
+does	Unknown
+not	Adverb
+conflict	Noun
+first	Adverb
+second	Noun
+law	Noun
+{S}
+{S}
